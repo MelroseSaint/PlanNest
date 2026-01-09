@@ -12,7 +12,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ onAccept }) =>
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-90 p-4">
       <div className="bg-white border-4 border-black shadow-2xl w-full max-w-2xl flex flex-col max-h-[90vh]">
         <div className="p-6 border-b-2 border-black bg-gray-100">
-           <h1 className="text-2xl font-serif font-bold uppercase tracking-wide">Welcome to Stars Binder</h1>
+           <h1 className="text-2xl font-serif font-bold uppercase tracking-wide">Welcome to Plannest</h1>
            <p className="text-gray-600 font-bold mt-1">Please review the following notices before proceeding.</p>
         </div>
         

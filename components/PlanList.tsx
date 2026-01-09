@@ -40,7 +40,7 @@ export const PlanList: React.FC<PlanListProps> = ({
       {/* Header */}
       <div className="border-b-4 border-black pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-5xl font-serif font-bold text-black tracking-tight">Stars Binder</h1>
+          <h1 className="text-5xl font-serif font-bold text-black tracking-tight">Plannest</h1>
           <p className="text-xl font-serif text-gray-600 mt-1">Lesson Plans • Newsletters • Reflections</p>
         </div>
         <div className="flex gap-2">

@@ -1,6 +1,11 @@
-# Stars Binder - Digital Planning Binder
+# Plannest - Digital Planning Platform
 
-**Stars Binder** is a comprehensive digital planning tool designed for grade school and daycare teachers. It streamlines the creation of lesson plans, newsletters, and administrative documentation while providing AI-assisted activity suggestions.
+**Plannest** (formerly Stars Binder) is a comprehensive digital planning tool designed for grade school and daycare teachers. It streamlines the creation of lesson plans, newsletters, and administrative documentation while providing AI-assisted activity suggestions.
+
+## Recent Updates
+- **Branding:** Rebranded to "Plannest" with updated metadata and SEO signals.
+- **Bug Fix:** Resolved React version conflict (removed importmap) to fix application crash on load.
+- **SEO:** Added JSON-LD Organization schema and canonical tags.
 
 ## Features
 
