@@ -101,8 +101,9 @@ export const NewsletterEditor: React.FC<NewsletterEditorProps> = ({ newsletter, 
             </div>
 
             <div className="mt-12 pt-4 border-t-2 border-black text-center text-[10px] uppercase font-serif text-gray-500">
-               <p>Stars Binder &copy; {new Date().getFullYear()}</p>
-               <p>Generated using Digital Planning Binder. For planning and documentation only. Not a certification of compliance.</p>
+               <p className="font-bold text-black mb-1">Plannest &copy; {new Date().getFullYear()}</p>
+               <p className="mb-1">Developed by <a href="https://darkstackstudiosinc.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">DarkStackStudios/ObscuraCode</a></p>
+               <p>Generated using Plannest. For planning and documentation only. Not a certification of compliance.</p>
             </div>
 
          </div>

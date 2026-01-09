@@ -2,10 +2,12 @@
 
 **Plannest** (formerly Stars Binder) is a comprehensive digital planning tool designed for grade school and daycare teachers. It streamlines the creation of lesson plans, newsletters, and administrative documentation while providing AI-assisted activity suggestions.
 
+**Developed by:** [DarkStackStudios/ObscuraCode](https://darkstackstudiosinc.vercel.app/)
+
 ## Recent Updates
-- **SEO & Branding:** Implemented strict Google Search compliance (JSON-LD Organization schema, canonical tags, clean metadata).
-- **Bug Fix:** Removed conflicting `importmap` to resolve React version mismatch and application crash.
-- **Identity:** Finalized "Plannest" branding across all meta signals.
+- **Branding:** Rebranded to "Plannest" with updated metadata, SEO signals, and developer credits.
+- **Bug Fix:** Resolved React version conflict to fix application crash on load.
+- **SEO:** Added strict JSON-LD Organization schema with parentOrganization linkage for developer attribution.
 
 ## Features
 
