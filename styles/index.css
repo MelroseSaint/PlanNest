@@ -1,0 +1,13 @@
+/* 
+  Styles are currently handled by Tailwind CDN in index.html to ensure immediate stability.
+  This file remains for specific local overrides if needed.
+*/
+
+/* Custom font adjustments (mirrors index.html) */
+body {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  background-color: #f3f4f6;
+}
+.sans-ui {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
