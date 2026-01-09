@@ -411,4 +411,42 @@ export const StorageService = {
       theme: '',
     };
   },
+
+  // --- Backup / Restore ---
+  createBackup: (): string => {
+    const backup = {
+      version: 1,
+      timestamp: new Date().toISOString(),
+      plans: JSON.parse(localStorage.getItem(PLANS_KEY) || '[]'),
+      library: JSON.parse(localStorage.getItem(LIBRARY_KEY) || '[]'),
+      dayTemplates: JSON.parse(localStorage.getItem(DAY_TEMPLATES_KEY) || '[]'),
+      weeklyTemplates: JSON.parse(localStorage.getItem(WEEKLY_TEMPLATES_KEY) || '[]'),
+      documents: JSON.parse(localStorage.getItem(DOCUMENTS_KEY) || '[]'),
+      newsletters: JSON.parse(localStorage.getItem(NEWSLETTERS_KEY) || '[]'),
+    };
+    return JSON.stringify(backup, null, 2);
+  },
+
+  restoreBackup: (jsonString: string): boolean => {
+    try {
+      const data = JSON.parse(jsonString);
+      // Basic validation
+      if (!data || !data.version) {
+        throw new Error("Invalid backup file format");
+      }
+
+      // Restore keys
+      if (data.plans) localStorage.setItem(PLANS_KEY, JSON.stringify(data.plans));
+      if (data.library) localStorage.setItem(LIBRARY_KEY, JSON.stringify(data.library));
+      if (data.dayTemplates) localStorage.setItem(DAY_TEMPLATES_KEY, JSON.stringify(data.dayTemplates));
+      if (data.weeklyTemplates) localStorage.setItem(WEEKLY_TEMPLATES_KEY, JSON.stringify(data.weeklyTemplates));
+      if (data.documents) localStorage.setItem(DOCUMENTS_KEY, JSON.stringify(data.documents));
+      if (data.newsletters) localStorage.setItem(NEWSLETTERS_KEY, JSON.stringify(data.newsletters));
+      
+      return true;
+    } catch (e) {
+      console.error("Restore failed", e);
+      return false;
+    }
+  }
 };

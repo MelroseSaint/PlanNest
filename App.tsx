@@ -160,6 +160,7 @@ const App: React.FC = () => {
           onDeleteNewsletter={handleDeleteNewsletter}
           onViewLibrary={() => setView('library')}
           onOpenLegal={() => setShowLegal(true)}
+          onRestore={refreshData}
         />
       )}
 

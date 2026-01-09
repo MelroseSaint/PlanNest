@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { WeeklyPlan, AgeGroup, Newsletter } from '../types';
 import { Button } from './Button';
+import { BackupModal } from './BackupModal';
 
 interface PlanListProps {
   plans: WeeklyPlan[];
@@ -13,6 +14,7 @@ interface PlanListProps {
   onDeleteNewsletter: (id: string) => void;
   onViewLibrary: () => void;
   onOpenLegal: () => void;
+  onRestore: () => void;
 }
 
 export const PlanList: React.FC<PlanListProps> = ({ 
@@ -25,11 +27,13 @@ export const PlanList: React.FC<PlanListProps> = ({
   onDeletePlan, 
   onDeleteNewsletter,
   onViewLibrary,
-  onOpenLegal
+  onOpenLegal,
+  onRestore
 }) => {
   const [activeTab, setActiveTab] = useState<'plans' | 'newsletters'>('plans');
   const [newWeekOf, setNewWeekOf] = useState<string>(new Date().toISOString().split('T')[0]);
   const [newAgeGroup, setNewAgeGroup] = useState<AgeGroup>('Toddler');
+  const [showBackup, setShowBackup] = useState(false);
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-8">
@@ -41,7 +45,8 @@ export const PlanList: React.FC<PlanListProps> = ({
         </div>
         <div className="flex gap-2">
             <Button onClick={onViewLibrary} variant="secondary">Template Library</Button>
-            <Button onClick={onOpenLegal} variant="secondary">About / Legal</Button>
+            <Button onClick={() => setShowBackup(true)} variant="secondary">Backup / Restore</Button>
+            <Button onClick={onOpenLegal} variant="secondary">About</Button>
         </div>
       </div>
 
@@ -103,7 +108,7 @@ export const PlanList: React.FC<PlanListProps> = ({
                     {plans.map((plan) => (
                     <div key={plan.id} className="group bg-white border border-gray-300 p-4 hover:border-black hover:shadow-md transition-all flex justify-between items-center">
                         <div onClick={() => onSelectPlan(plan.id)} className="cursor-pointer flex-1">
-                        <h3 className="text-lg font-bold font-serif">{plan.weekOf} — {plan.ageGroup}</h3>
+                        <h3 className="text-lg font-serif font-bold">{plan.weekOf} — {plan.ageGroup}</h3>
                         <p className="text-sm text-gray-500 sans-ui">{plan.theme ? `Theme: ${plan.theme}` : 'No theme set'}</p>
                         </div>
                         <Button variant="danger" onClick={() => onDeletePlan(plan.id)} className="opacity-0 group-hover:opacity-100 transition-opacity">
@@ -143,6 +148,11 @@ export const PlanList: React.FC<PlanListProps> = ({
           )}
       </div>
 
+      <BackupModal 
+        isOpen={showBackup} 
+        onClose={() => setShowBackup(false)} 
+        onRestoreComplete={onRestore} 
+      />
     </div>
   );
 };
