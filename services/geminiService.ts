@@ -68,12 +68,10 @@ export const GeminiService = {
     }
 
     // 2. Try API
-    const apiKey = process.env.API_KEY;
-
     // Only attempt if API Key exists and we are likely online
-    if (apiKey && navigator.onLine) {
+    if (process.env.API_KEY && navigator.onLine) {
       try {
-        const ai = new GoogleGenAI({ apiKey });
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         
         const prompt = `
           You are a helpful assistant for a daycare teacher.
