@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paper-like print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background-color: white;
+    color: black;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* Custom font adjustments */
+body {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  background-color: #f3f4f6;
+}
+.sans-ui {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

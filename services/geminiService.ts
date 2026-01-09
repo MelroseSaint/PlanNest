@@ -68,15 +68,7 @@ export const GeminiService = {
     }
 
     // 2. Try API
-    // Safe access to process.env
-    let apiKey: string | undefined;
-    try {
-        if (typeof process !== 'undefined' && process.env) {
-            apiKey = process.env.API_KEY;
-        }
-    } catch(e) {
-        // process not defined
-    }
+    const apiKey = process.env.API_KEY;
 
     // Only attempt if API Key exists and we are likely online
     if (apiKey && navigator.onLine) {
