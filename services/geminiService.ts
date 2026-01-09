@@ -68,10 +68,20 @@ export const GeminiService = {
     }
 
     // 2. Try API
+    // Safe access to process.env
+    let apiKey: string | undefined;
+    try {
+        if (typeof process !== 'undefined' && process.env) {
+            apiKey = process.env.API_KEY;
+        }
+    } catch(e) {
+        // process not defined
+    }
+
     // Only attempt if API Key exists and we are likely online
-    if (process.env.API_KEY && navigator.onLine) {
+    if (apiKey && navigator.onLine) {
       try {
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const ai = new GoogleGenAI({ apiKey });
         
         const prompt = `
           You are a helpful assistant for a daycare teacher.
